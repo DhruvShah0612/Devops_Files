@@ -21,3 +21,27 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '123';
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123';
 FLUSH PRIVILEGES;
 exit
+
+==================================================================================
+# postgresql
+
+CREATE DATABASE casino;
+CREATE USER casino WITH PASSWORD 'LB02IQ5MffXg';
+
+ALTER DATABASE casino OWNER TO casino;
+
+GRANT ALL PRIVILEGES ON DATABASE casino TO casino;
+
+\c casino
+
+GRANT USAGE ON SCHEMA public TO casino;
+
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO casino;
+
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO casino;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA public 
+GRANT ALL PRIVILEGES ON TABLES TO casino;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA public 
+GRANT ALL PRIVILEGES ON SEQUENCES TO casino;
